@@ -236,13 +236,17 @@ prompt_aws() {
   esac
 }
 
+prompt_time() {
+  prompt_segment green black "$(date +%H:%M:%S)"
+}
+
 ## Main prompt
 build_prompt() {
   RETVAL=$?
   prompt_status
+  prompt_time
   prompt_virtualenv
-  prompt_aws
-  prompt_context
+  # prompt_context
   prompt_dir
   prompt_git
   prompt_bzr
